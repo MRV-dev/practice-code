@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f0f0f0;
+  }
+
+  svg {
+    width: 200px;
+    height: 200px;
+  }
+
+  .heart-path {
+    stroke: #ff6b9d;
+    stroke-width: 3;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+</style>
+</head>
+<body>
+  <svg viewBox="0 0 100 100">
+    <path class="heart-path" 
+          d="M50,90 C25,75 5,60 5,40 C5,25 15,15 25,15 C35,15 45,25 50,35 C55,25 65,15 75,15 C85,15 95,25 95,40 C95,60 75,75 50,90 Z" />
+  </svg>
+
+  <script>
+    const path = document.querySelector('.heart-path');
+    const length = path.getTotalLength();
+
+    // Set initial state - hide the path
+    path.style.strokeDasharray = length;
+    path.style.strokeDashoffset = length;
+
+    // Animate the drawing
+    let progress = 0;
+    const animationDuration = 2000; // 2 seconds
+    const startTime = Date.now();
+
+    function animate() {
+      const elapsed = Date.now() - startTime;
+      progress = elapsed / animationDuration;
+
+      if (progress < 1) {
+        path.style.strokeDashoffset = length * (1 - progress);
+        requestAnimationFrame(animate);
+      }
+    }
+
+    animate();
+  </script>
+</body>
+</html>

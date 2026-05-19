@@ -1,0 +1,20 @@
+ body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f0f0f0;
+  }
+
+  svg {
+    width: 200px;
+    height: 200px;
+  }
+
+  .heart {
+    stroke: #ff6b9d;
+    stroke-width: 3;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f0f0f0;
+  }
+  
+  .heart {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    animation: heartbeat 1.5s infinite;
+  }
+  
+  .heart::before,
+  .heart::after {
+    content: '';
+    position: absolute;
+    background: #ff6b9d;
+    border-radius: 100px 100px 0 0;
+  }
+  
+  .heart::before {
+    width: 100px;
+    height: 160px;
+    left: 70px;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+  }
+  
+  .heart::after {
+    width: 100px;
+    height: 160px;
+    right: 30px;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+  }
+  
+  @keyframes heartbeat {
+    0%, 100% {
+      transform: scale(1);
+    }
+    25% { transform: scale(1.3)}
+    50% { transform: scale(1);}
+  }
+
+
+</style>
+</head>
+<body>
+  <div class="heart"></div>
+</body>
+</html>

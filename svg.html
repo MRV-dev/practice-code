@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body{
+        display: flex;
+      }
+
+      img{
+        position: relative;
+        right: 300px;
+        top: 100px;
+        height: 500px;
+        width: 500px;
+        animation: puppy 1.4s infinite;
+      }
+
+      @keyframes puppy {
+     0%, 100% { transform: translateX(10px); }
+  50% { transform: translateY(10px); }
+      }
+    </style>
+  </head>
+<body>
+
+<!-- <svg width="500" height="200">
+  <circle cx="300" cy="100" r="50" fill="red" />
+</svg>
+
+<svg width="200" height="200">
+  <rect x="50" y="50" width="100" height="100" fill="blue" />
+</svg>
+
+<svg width="200" height="200">
+  <path d="M10,10 L100,100 120, 180" stroke="black" stroke-width="2" fill="none" />
+</svg>
+
+<svg width="200" height="200">
+  <path d="M100,20 L180,160 L20,160 Z" stroke="black" stroke-width="2" fill="yellow" />
+</svg> -->
+
+<!-- <svg width="200" height="200">
+  <path d="M20,100 Q100,20 180,100" stroke="red" stroke-width="2" fill="none" />
+</svg> -->
+
+<svg viewBox="0 0 400 100">
+  <path d="M80,90 C5,23 80,30 80,55 C80,20 160,40 80,90 Z" stroke="red" stroke-width="2" fill="none" />
+</svg>
+
+
+<img src="https://i.pinimg.com/736x/07/c3/0f/07c30f2d04b17e62f1bba911a4bf0577.jpg" alt="">
+
+<script>
+  const path = document.querySelector('path');
+  const length = path.getTotalLength();
+
+  path.style.strokeDasharray = length;
+  path.style.strokeDashoffset = length;
+
+  const duration = 2000;
+  const reverseDelay = 500;
+  let startTime = Date.now();
+  let phase = 'draw';
+
+  function animate(){
+    let elapsed = Date.now() - startTime;
+
+    if (phase === 'draw') {
+     const progress = elapsed / duration;
+
+      if (progress < 1){
+        path.style.strokeDashoffset = length * (1 - progress);
+        requestAnimationFrame(animate);
+      } else {
+        setTimeout(() => {
+          phase = 'hide';
+          startTime = Date.now();
+          animate();
+        }, reverseDelay);
+      }
+     }
+     else if (phase === 'hide') {
+      const progress = elapsed / duration;
+
+       if (progress < 1){
+        path.style.strokeDashoffset = length * progress;
+        requestAnimationFrame(animate);
+      } else {
+        // Loop back to draw phase
+        setTimeout(() => {
+          phase = 'draw';
+          startTime = Date.now();
+          animate();
+        }, reverseDelay);
+      }
+     }
+    }
+
+  animate();
+</script>
+
+</body>
+</html>
