@@ -79,26 +79,79 @@ let n = 11;
 
 // }
 
-for(i = 0; i < n; i++){
+// for(i = 0; i < n; i++){
 
-  row = "";
-  for(o = 0; o < n; o++){
-    if(o == 0 || o == n-1 || (o == i && i <= n/2) || (o + i == n-1 && i <= n/2)){
+//   row = "";
+//   for(o = 0; o < n; o++){
+//     if(o == 0 || o == n-1 || (o == i && i <= n/2) || (o + i == n-1 && i <= n/2)){
 
-      row = row + "*"
+//       row = row + "*"
 
-    } else {
+//     } else {
 
-      row = row + " "
+//       row = row + " "
 
-    }
-  }
-  console.log(row);
+//     }
+//   }
+//   console.log(row);
 
-}
+// }
 
 
 
 // for(i = 1; i <= 5; i++){
 //   console.log("*");
 // }
+
+
+for(i = 0; i < n; i++) {
+  row = "";
+  for(j = 0; j < n; j++) {
+    if( (i == j && i <= n/2) || (i + j == n-1 && i <= n/2) || j == 0 || j == n-1 ) {
+    // if(i == 0 || j == 0 || j == n-1 || i == n-1){
+      row = row + "*";
+    }
+    else {
+      row = row + " ";
+    }
+  }
+  console.log(row);
+}
+
+
+for(i = 0; i < n; i++) {
+  row = "";
+  for(j = 0; j < n; j++) {
+    if( (i + j == n-1 && j <= n/2) || (i == j && j >= n/2) || j == 0 || j == n-1 ) {
+    // if(i == 0 || j == 0 || j == n-1 || i == n-1){
+      row = row + "*";
+    }
+    else {
+      row = row + " ";
+    }
+  }
+  console.log(row);
+}
+
+for(i = 0; i < n; i++) {
+  row = "";
+  for(j = 0; j < n; j++) {
+       // upper left side          lower left side           lower right side                 upper right side              dot in middle
+    if( i+j == Math.floor(n/2) || i-j == Math.floor(n/2) || i+j == n-1 + Math.floor(n/2) || j-i ==  Math.floor(n/2) || j == i && j == Math.floor(n/2)){
+    // if(i == 0 || j == 0 || j == n-1 || i == n-1){
+      row = row + "*";
+    }
+    else {
+      row = row + " ";
+    }
+  }
+  console.log(row);
+}
+
+
+for(i = 1; i < n; i++) {
+  row = "*";
+  console.log(row);
+}
+
+
