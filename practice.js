@@ -74,33 +74,71 @@ let s = {
 
 
 // Object constructor
-let gameCharacter = {
-  name: 'Anton',
-  health: 100,
-  level: 1,
+// let gameCharacter = {
+//   name: 'Anton',
+//   health: 100,
+//   level: 1,
 
-  takenDamage: function(damage){
-    this.health -= damage;
-    console.log(`Took ${damage} damage! Health: ${this.health}`);
+//   takenDamage: function(damage){
+//     this.health -= damage;
+//     console.log(`Took ${damage} damage! Health: ${this.health}`);
 
 
-    if(this.health <= 0){
-      console.log(`You Died!`);
-    }
-    else if (this.health <= 20){
-      this.health -= damage;
-      console.log(`Player Health Critical: ${this.health}`);
-    }
-    else{
-       console.log(`Good Condition!`);
-    }
-  },
+//     if(this.health <= 0){
+//       console.log(`You Died!`);
+//     }
+//     else if (this.health <= 20){
+//       this.health -= damage;
+//       console.log(`Player Health Critical: ${this.health}`);
+//     }
+//     else{
+//        console.log(`Good Condition!`);
+//     }
+//   },
 
-  levelUp: function(){
-    this.level += 1;
-    console.log(`player leveled up: ${this.level}`);
-  },
+//   levelUp: function(){
+//     this.level += 1;
+//     console.log(`player leveled up: ${this.level}`);
+//   },
+// }
+
+// gameCharacter.takenDamage(0);
+// gameCharacter.levelUp();
+
+
+
+
+
+// let userName = 'Anthony';
+// let userRole = 'User';
+
+// function checkAccess(){
+//   let hasAccess = false;
+
+//   if(userRole === 'Admin'){
+//     let msg = `Welcome ${userName}, you have Admin access.`;
+//     hasAcess = true;
+//     console.log(msg);
+//   }else{
+//     console.log(`Access Denied!`);
+//   }
+// }
+
+// checkAccess();
+
+
+
+function fun1(){
+  console.log("This is function 1");
+
+  function fun2(){
+    console.log("This is function 2");
+  }
+  
+  return fun2;
+
 }
 
-gameCharacter.takenDamage(0);
-gameCharacter.levelUp();
+// exmp = fun1();
+// exmp();
+fun1()();
